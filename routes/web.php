@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatGptIndexController;
 use App\Http\Controllers\ChatGptStoreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SendMsmController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,4 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat/{id?}', ChatGptIndexController::class)->name('chat.show');
     Route::post('/chat',ChatGptStoreController::class)->name('chat.store');
 });
+
+Route::get('sent/',[SendMsmController::class,'index']);
 require __DIR__.'/auth.php';
